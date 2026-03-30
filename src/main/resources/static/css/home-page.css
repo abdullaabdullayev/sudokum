@@ -1,0 +1,188 @@
+/* Ümumi Səhifə Ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f0f2f5; /* Daha müasir, yumşaq arxa fon */
+}
+
+/* Sidebar Hissəsi */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-right: 2px solid #34495e;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.profile {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 90%;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logout-container {
+    margin-top: auto;
+    padding-bottom: 30px;
+}
+
+.logout-btn {
+    color: #ff4757;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #ff4757;
+    padding: 10px 25px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #ff4757;
+    color: white;
+}
+
+/* Əsas Oyun Sahəsi */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+
+/* Sudoku Board */
+#sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    border: 3px solid #333;
+    background-color: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Hər bir xana */
+.tile {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    color: #3498db; /* İstifadəçi yazıları göy */
+
+    user-select: none;           /* Mətnin göy rənglə seçilməsini söndürür */
+    -webkit-user-select: none;    /* Chrome/Safari üçün */
+    outline: none;               /* Klikləyəndə ətrafında yaranan çərçivəni silir */
+    caret-color: transparent;    /* Yanıb-sönən kursoru gizlədir */
+}
+
+/* 3x3 BLOKLARI AYIRAN QALIN XƏTLƏR */
+/* Sağ tərəf qalın xətlər */
+.tile:nth-child(3n):not(:nth-child(9n)) {
+    border-right: 3px solid #333;
+}
+
+/* Alt tərəf qalın xətlər */
+.tile:nth-child(n+19):nth-child(-n+27),
+.tile:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 3px solid #333;
+}
+
+/* Seçilən və Sabit Xanalar */
+.selected-tile {
+    background-color: #e2eefb !important;
+    outline: 2px solid #3498db;
+    z-index: 1;
+}
+
+.fixed-tile {
+    background-color: #f8f9fa;
+    color: #2c3e50 !important; /* Java-dan gələn rəqəmlər qara/tünd */
+    cursor: default;
+}
+
+/* Rəqəm Paneli (Number Pad) */
+#number-pad {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3498db;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-shadow: 0 4px #2980b9;
+}
+
+.number:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px #2980b9;
+}
+
+.number:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #2980b9;
+}
+
+/* Silmə Düyməsi */
+.number.delete {
+    background-color: #e74c3c;
+    box-shadow: 0 4px #c0392b;
+    padding: 0 20px;
+    width: auto;
+}
+
+.number.delete:hover {
+    background-color: #c0392b;
+}
+
+.active-btn {
+    background-color: #2ecc71 !important;
+    box-shadow: 0 4px #27ae60 !important;
+    transform: translateY(2px);
+}

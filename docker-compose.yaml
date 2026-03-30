@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: public.ecr.aws/docker/library/postgres:16-alpine
+    container_name: postgres_sudokum
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sudokum_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./lesson.sql:/docker-entrypoint-initdb.d/lesson.sql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sudokum</title>
+    <link rel="stylesheet" href="/css/home-page.css">
+    <link rel="icon" type="image/x-icon" href="/icons/pastime.png">
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+<!--        <div class="profile" th:text="${username}">User Name</div>-->
+        <div class="logout-container">
+            <a href="/logout" class="logout-btn">Log out</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>SUDOKU</h1>
+        <div id="sudoku-board">
+        </div>
+        <div id="number-pad">
+            <div class="number">1</div>
+            <div class="number">2</div>
+            <div class="number">3</div>
+            <div class="number">4</div>
+            <div class="number">5</div>
+            <div class="number">6</div>
+            <div class="number">7</div>
+            <div class="number">8</div>
+            <div class="number">9</div>
+            <div class="number delete">⌫</div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/sudoku.js"></script>
+</body>
+</html>
