@@ -13,12 +13,12 @@ public class PageController {
     }
     @GetMapping("/home-page")
     public String showHomePage(HttpSession session, Model model){
-//        String user = (String) session.getAttribute("loggedInUser");
-//
-//        if (user == null) {
-//            return "redirect:/sign-up";
-//        }
-//        model.addAttribute("username");
+        String user = (String) session.getAttribute("loggedInUser");
+
+        if (user == null) {
+            return "redirect:/sign-up";
+        }
+        model.addAttribute("username", user);
         return "home-page";
     }
     @GetMapping("/logout")

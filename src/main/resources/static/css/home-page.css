@@ -1,4 +1,4 @@
-/* Ümumi Səhifə Ayarları */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +10,10 @@
     display: flex;
     min-height: 100vh;
     width: 100%;
-    background-color: #f0f2f5; /* Daha müasir, yumşaq arxa fon */
+    background-color: #f0f2f5; 
 }
 
-/* Sidebar Hissəsi */
+
 .sidebar {
     width: 250px;
     background-color: #2c3e50;
@@ -26,6 +26,7 @@
     position: sticky;
     top: 0;
     height: 100vh;
+    user-select: none;
 }
 
 .profile {
@@ -59,7 +60,7 @@
     color: white;
 }
 
-/* Əsas Oyun Sahəsi */
+
 .main-content {
     flex-grow: 1;
     display: flex;
@@ -76,7 +77,7 @@ h1 {
     letter-spacing: 5px;
 }
 
-/* Sudoku Board */
+
 #sudoku-board {
     display: grid;
     grid-template-columns: repeat(9, 50px);
@@ -86,7 +87,7 @@ h1 {
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* Hər bir xana */
+
 .tile {
     width: 50px;
     height: 50px;
@@ -98,27 +99,27 @@ h1 {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.15s;
-    color: #3498db; /* İstifadəçi yazıları göy */
+    color: #3498db;
 
-    user-select: none;           /* Mətnin göy rənglə seçilməsini söndürür */
-    -webkit-user-select: none;    /* Chrome/Safari üçün */
-    outline: none;               /* Klikləyəndə ətrafında yaranan çərçivəni silir */
-    caret-color: transparent;    /* Yanıb-sönən kursoru gizlədir */
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    caret-color: transparent;
 }
 
-/* 3x3 BLOKLARI AYIRAN QALIN XƏTLƏR */
-/* Sağ tərəf qalın xətlər */
+
+
 .tile:nth-child(3n):not(:nth-child(9n)) {
     border-right: 3px solid #333;
 }
 
-/* Alt tərəf qalın xətlər */
+
 .tile:nth-child(n+19):nth-child(-n+27),
 .tile:nth-child(n+46):nth-child(-n+54) {
     border-bottom: 3px solid #333;
 }
 
-/* Seçilən və Sabit Xanalar */
+
 .selected-tile {
     background-color: #e2eefb !important;
     outline: 2px solid #3498db;
@@ -127,17 +128,17 @@ h1 {
 
 .fixed-tile {
     background-color: #f8f9fa;
-    color: #2c3e50 !important; /* Java-dan gələn rəqəmlər qara/tünd */
+    color: #2c3e50 !important; 
     cursor: default;
 }
 
-/* Rəqəm Paneli (Number Pad) */
+
 #number-pad {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 12px;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px;
 }
 
@@ -169,7 +170,7 @@ h1 {
     box-shadow: 0 2px #2980b9;
 }
 
-/* Silmə Düyməsi */
+
 .number.delete {
     background-color: #e74c3c;
     box-shadow: 0 4px #c0392b;
@@ -185,4 +186,46 @@ h1 {
     background-color: #2ecc71 !important;
     box-shadow: 0 4px #27ae60 !important;
     transform: translateY(2px);
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+#submit-btn {
+    background-color: #27ae60; 
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px #1e8449; 
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
+
+#submit-btn:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px); 
+    box-shadow: 0 6px #27ae60;
+}
+
+
+#submit-btn:active {
+    transform: translateY(4px); 
+    box-shadow: none; 
+}
+
+
+#submit-btn:focus {
+    outline: none;
 }
